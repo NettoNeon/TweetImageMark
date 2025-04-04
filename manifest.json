@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Image Downloader",
+  "version": "1.0",
+  "description": "画像に文字を入れて保存",
+  "permissions": ["contextMenus", "scripting", "activeTab"],
+  "host_permissions": ["*://twitter.com/*", "*://x.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
