@@ -2,7 +2,7 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "save-image-with-text",
-    title: "画像に文字を入れて保存",
+    title: "TweetImageMark（文字入り画像を保存）",
     contexts: ["image"],
   });
 });
@@ -106,7 +106,7 @@ function runContentScript(imageUrl) {
   image.src = img.src;
   image.onload = () => {
     ctx.drawImage(image, 0, 0);
-    const lines = [`userID: ${userID}`, `tweetID: ${tweetID}`];
+    const lines = [`userID: @${userID}`, `tweetID: ${tweetID}`];
     drawMultilineTextWithBox(ctx, lines, 20, canvas.height - 48 * 1.4);
     // ========== ダウンロード ==========
     const link = document.createElement("a");
